@@ -1,0 +1,154 @@
+<template lang="pug">
+.page-4
+  //- 标题
+  img.so-6(src="@|page4-6.png|")
+  .message-box
+    .message
+      .title 山东网友
+      .text &emsp;&emsp;这是一场没有硝烟的战争。<br>&emsp;&emsp;“生命重于泰山。疫情就是命令，防控就是责任。”
+      //- 更多
+      .so-2-3
+        a(href="#")
+    .message
+      .title 山东网友
+      .text &emsp;&emsp;这是一场没有硝烟的战争。<br>&emsp;&emsp;“生命重于泰山。疫情就是命令，防控就是责任。”
+      //- 更多
+      .so-2-3
+        a(href="#")
+    .message
+      .title 山东网友
+      .text &emsp;&emsp;这是一场没有硝烟的战争。<br>&emsp;&emsp;“生命重于泰山。疫情就是命令，防控就是责任。”
+      //- 更多
+      .so-2-3
+        a(href="#")
+    .message
+      .title 山东网友
+      .text &emsp;&emsp;这是一场没有硝烟的战争。<br>&emsp;&emsp;“生命重于泰山。疫情就是命令，防控就是责任。”
+      //- 更多
+      .so-2-3
+        a(href="#")
+    .message
+      .title 山东网友
+      .text &emsp;&emsp;这是一场没有硝烟的战争。<br>&emsp;&emsp;“生命重于泰山。疫情就是命令，防控就是责任。”
+      //- 更多
+      .so-2-3
+        a(href="#")
+  //- 查看更多
+  .so-5(style="width: 218px; height: 54px; background-image: url(@|page4-5.png|)")
+    a(href="#")
+  //- 上一页
+  img.so-3(src="@|page3-3.png|" o-tap="back")
+  //- 下一页
+  img.so-4(src="@|page2-3.png|" o-tap="next")
+</template>
+
+<script>
+module.exports = {
+  created: function () {
+    owo.tool.touch({
+      el: this.$el,
+      end: (e) => {
+        if (e.swipe[0] > 100) {
+          this.back()
+        } else if (e.swipe[0] < -100) {
+          this.next()
+        }
+      }
+    })
+  },
+  back: function () {
+    owo.tool.stepTo(-1, {
+      ani: 'moveToRight/moveFromLeft/moveToLeft/moveFromRight',
+      noBack: true
+    })
+  },
+  next: function () {
+    owo.tool.stepTo(1, {
+      ani: 'moveToLeft/moveFromRight/moveToRight/moveFromLeft',
+      noBack: true
+    })
+  }
+}
+</script>
+
+<style lang="less">
+.so-6 {
+  position: absolute;
+  left: 276px;
+  z-index: 6;
+  top: 199px
+}
+.so-5 {
+  position: absolute;
+  left: 82px;
+  z-index: 5;
+  top: 1291px;
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+.so-3 {
+  position: absolute;
+  left: 317px;
+  z-index: 3;
+  top: 1295px
+}
+.so-4 {
+  position: absolute;
+  left: 512px;
+  z-index: 4;
+  top: 1296px
+}
+.message-box {
+  position: absolute;
+  left: 80px;
+  top: 275px;
+  width: 639px;
+  height: 1000px;
+  overflow: auto;
+  z-index: 2;
+  .message {
+    position: relative;
+    width: 639px;
+    height: 250px;
+    background-image: url(@|page4-2-1.png|);
+  }
+}
+
+.title {
+  position: absolute;
+  left: 35px;
+  z-index: 2;
+  font-family: 'FZLTCHPro--GB1-4', 'AdobeInvisFont', 'AdobeHeitiStd-Regular';
+  font-size: 28px;
+  line-height: 1.7;
+  color: #2167af;
+  top: 7px;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+}
+.so-2-3 {
+  position: absolute;
+  left: 482px;
+  z-index: 3;
+  top: 195px;
+  width: 78px;
+  height: 22px;
+  background-image: url(@|page4-2-3.png|);
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+.text {
+  font-size: 26px;
+  line-height: 45px;
+  width: 486px;
+  left: 46px;
+  position: absolute;
+  top: 52px;
+}
+</style>

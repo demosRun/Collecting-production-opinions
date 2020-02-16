@@ -1,0 +1,312 @@
+<template lang="pug">
+.page-3
+  .so-4.box(style="width: 639px; height: 1073px; background-image: url(@|page3-4.png|)")
+  .so-7(style="width: 333px;")
+    //- 分类选择框
+    <select class="select-input" name="" onchange="setDomianId(value)">
+      <option style="color: #d2c6bb" disabled="" selected="">请选择</option>
+      <option value="7">城建</option>
+      <option value="6">交通</option>
+      <option value="9">三农</option>
+      <option value="13">环保</option>
+      <option value="14">教育</option>
+      <option value="12">医疗</option>
+      <option value="1">治安</option>
+      <option value="5">旅游</option>
+      <option value="11">就业</option>
+      <option value="10">文娱</option>
+      <option value="20">金融</option>
+      <option value="4">企业</option>
+      <option value="2">政务</option>
+      <option value="16">其他</option>
+    </select>
+  .so-6(style="width: 333px;")
+    //- 省份选择框
+    <select class="select-input" onchange="setProId(value)">
+      <option disabled selected>选择省份</option>
+      <option value="4">北京市</option>
+      <option value="5">天津市</option>
+      <option value="6">河北省</option>
+      <option value="17">山西省</option>
+      <option value="18">内蒙古自治区</option>
+      <option value="8">辽宁省</option>
+      <option value="9">吉林省</option>
+      <option value="10">黑龙江省</option>
+      <option value="12">上海市</option>
+      <option value="13">江苏省</option>
+      <option value="14">浙江省</option>
+      <option value="19">安徽省</option>
+      <option value="20">福建省</option>
+      <option value="21">江西省</option>
+      <option value="22">山东省</option>
+      <option value="27">河南省</option>
+      <option value="28">湖北省</option>
+      <option value="29">湖南省</option>
+      <option value="30">广东省</option>
+      <option value="31">广西壮族自治区</option>
+      <option value="32">海南省</option>
+      <option value="33">重庆市</option>
+      <option value="34">四川省</option>
+      <option value="35">贵州省</option>
+      <option value="36">云南省</option>
+      <option value="37">西藏自治区</option>
+      <option value="41">陕西省</option>
+      <option value="42">甘肃省</option>
+      <option value="43">青海省</option>
+      <option value="44">宁夏回族自治区</option>
+      <option value="45">新疆维吾尔自治区</option>
+      <option value="38">香港特别行政区</option>
+      <option value="39">澳门特别行政区</option>
+    </select>
+  .so-5
+    <select class="select-input" name="" id="leader" onchange="setLeaderId(value)">
+      <option style="color: #d2c6bb" disabled selected>请选择</option>
+    </select>
+  //- 选择框第三级
+  .three-select
+    <select class="select-input" name="" id="leader2" onchange="setLeaderId1(value)">
+      <option style="color: #d2c6bb" disabled="" selected="">请选择</option>
+    </select>
+  //- 标题输入框
+  <input name="" id="subject" maxlength="22">
+  //- 留言内容
+  <textarea cols="" rows="" id="mcontent" maxlength="1000" placeholder=""></textarea>
+  //- 用户名
+  <input name="" id="username" placeholder="" class="input01">
+  .so-8(style="width: 175px; height: 49px; background-image: url(@|page3-8.png|)")
+    <input name="" id="code" placeholder="输入验证码" class="input02">
+  //- 发送验证码
+  img.so-9(src="@|page3-9.png|" o-tap="sendCode")
+  //- 提交按钮
+  img.so-10(src="@|page3-10.png|" o-tap="sub()")
+  //- 电话号码输入框
+  input.phone.number-input#tel(type="number" o-value="this.data.pnum")
+  //- 上一页
+  img.so-3(src="@|page3-3.png|" o-tap="back")
+  //- 下一页
+  img.so-2(src="@|page2-3.png|" o-tap="next")
+</template>
+<script>
+module.exports = {
+  data: {
+    pnum: '',
+    isSend: false,
+  },
+  created: function () {
+    owo.tool.touch({
+      el: this.$el,
+      end: (e) => {
+        if (e.swipe[0] > 100) {
+          this.back()
+        } else if (e.swipe[0] < -100) {
+          this.next()
+        }
+      }
+    })
+  },
+  sendCode: function () {
+    var pnum = this.data.pnum;
+    if (this.data.isSend) {
+      owo.tool.toast('每隔60秒才能发送一次哦!');
+      return
+    }
+    console.log(pnum, String(pnum).length)
+    if (!pnum || String(pnum).length !== 11) {
+      owo.tool.toast('没有正确输入电话号码!');
+      return
+    }
+    $.ajax({
+      type: 'post',
+      async: false,
+      url: 'http://liuyan.people.com.cn/topicThreads/getPhoneVarCode',
+      dataType: 'json',
+      crossDomain: true,
+      data: {
+        phoneNum: pnum
+      },
+      success: (data) => {
+        if (data.result == 'fail') {
+          owo.tool.toast(data.error);
+        } else {
+          owo.tool.toast('发送成功!');
+          this.data.isSend = true
+          setTimeout(() => {
+            this.data.isSend = false
+          }, 60000);
+        }
+      },
+      error: function error() {
+        owo.tool.toast('发送失败请稍后再试!');
+      }
+    });
+  },
+  back: function () {
+    owo.tool.stepTo(-1, {
+      ani: 'moveToRight/moveFromLeft/moveToLeft/moveFromRight',
+      noBack: true
+    })
+  },
+  next: function () {
+    owo.tool.stepTo(1, {
+      ani: 'moveToLeft/moveFromRight/moveToRight/moveFromLeft',
+      noBack: true
+    })
+  }
+}
+</script>
+<style lang="less">
+.so-4 {
+  position: absolute;
+  left: 73px;
+  z-index: 4;
+  top: 199px
+}
+.so-7 {
+  position: absolute;
+  left: 255px;
+  z-index: 7;
+  top: 525px;
+  background-repeat: no-repeat;
+  height: 50px;
+  background-position: bottom;
+}
+.so-6 {
+  position: absolute;
+  left: 255px;
+  z-index: 6;
+  top: 347px;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+.so-5 {
+  position: absolute;
+  left: 185px;
+  z-index: 5;
+  top: 402px;
+  width: 400px;
+  background-repeat: no-repeat;
+  height: 50px;
+  background-position: bottom;
+}
+.so-8 {
+  position: absolute;
+  left: 171px;
+  z-index: 8;
+  top: 1060px
+}
+.so-9 {
+  position: absolute;
+  left: 412px;
+  z-index: 9;
+  top: 1060px
+}
+.so-10 {
+  position: absolute;
+  left: 313px;
+  z-index: 10;
+  top: 1155px
+}
+.so-3 {
+  position: absolute;
+  left: 198px;
+  z-index: 3;
+  top: 1288px
+}
+.so-2 {
+  position: absolute;
+  left: 419px;
+  z-index: 2;
+  top: 1288px
+}
+.number-input {
+  position: absolute;
+  top: 971px;
+  z-index: 10;
+  left: 394px;
+  width: 185px;
+  line-height: 40px;
+  font-size: 28px;
+  border: none;
+  background-color: transparent;
+}
+.select-input {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  line-height: 50px;
+  height: 50px;
+  font-size: 26px;
+}
+#subject {
+  position: absolute;
+  top: 642px;
+  left: 175px;
+  height: 50px;
+  width: 410px;
+  z-index: 9;
+  border: none;
+  background-color: transparent;
+  font-size: 30px;
+}
+#mcontent {
+  position: absolute;
+  top: 733px;
+  z-index: 14;
+  left: 175px;
+  width: 410px;
+  height: 157px;
+  line-height: 50px;
+  background-color: transparent;
+  border: none;
+  font-size: 30px;
+}
+.input01 {
+  position: absolute;
+  top: 902px;
+  z-index: 12;
+  height: 50px;
+  font-size: 26px;
+  left: 360px;
+  width: 225px;
+  border: none;
+  background-color: transparent;
+}
+.input02 {
+  height: 50px;
+  line-height: 50px;
+  font-size: 26px;
+  width: 87%;
+  border: none;
+  display: block;
+  margin: 0 auto;
+  background-color: transparent;
+}
+input {
+  outline: none;
+  border: 0px;
+}
+.three-select {
+  position: absolute;
+  top: 460px;
+  z-index: 12;
+  left: 182px;
+  width: 403px;
+  text-align: center;
+}
+select {
+  border: 0;
+	display: block;
+	white-space: nowrap;
+	width: 100%;
+	overflow: hidden;
+  background: transparent;
+  appearance:none;
+	-moz-appearance:none; /* Firefox */
+  -webkit-appearance:none; /* Safari 和 Chrome */
+  text-align: center;
+  text-align-last: center;
+  color: #987c5e;
+}
+</style>

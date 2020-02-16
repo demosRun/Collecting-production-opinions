@@ -1,0 +1,575 @@
+body, html, .page, .page-box {
+  padding: 0;
+  margin: 0;
+}
+
+.owo-animation {
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.owo-animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.owo-animation-forward {
+  z-index: 99;
+}
+
+img {
+  border: none;
+}
+
+/* 清除浮动 */
+.clear:after {
+  content: "";
+  height: 0;
+  line-height: 0;
+  display: block;
+  visibility: hidden;
+  clear: both;
+  zoom: 1;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+@-webkit-keyframes flicker {
+  from {
+    opacity: 100%;
+  }
+
+  to {
+    opacity: 10%;
+  }
+}
+
+@keyframes flicker {
+  from {
+    opacity: 100%;
+  }
+
+  to {
+    opacity: 10%;
+  }
+}
+
+.owo-animation-flicker {
+  -webkit-animation: flicker 2s linear 0s infinite alternate;
+  animation: flicker 2s linear 0s infinite alternate;
+}
+
+.page-1 .so-2 {
+  position: absolute;
+  left: 252px;
+  z-index: 2;
+  top: 1256px;
+  width: 245px;
+  height: 62px;
+  background-image: url(../resource/page1-2.png);
+}
+.page-2 .so-2 {
+  position: absolute;
+  left: 76px;
+  z-index: 2;
+  top: 208px;
+}
+
+.page-2 .so-3 {
+  position: absolute;
+  left: 498px;
+  z-index: 3;
+  top: 212px;
+}
+
+.page-2 .so-1 {
+  position: absolute;
+  left: 94px;
+  z-index: 2;
+  top: 312px;
+  overflow: auto;
+}
+
+.page-2 .text {
+  font-size: 36px;
+  color: white;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.page-2 .text p {
+  text-indent: 2em;
+}
+
+.page-2 .show-item {
+  width: 100%;
+  height: auto;
+  margin: 10px 0;
+}
+.page-3 .so-4 {
+  position: absolute;
+  left: 73px;
+  z-index: 4;
+  top: 199px;
+}
+
+.page-3 .so-7 {
+  position: absolute;
+  left: 255px;
+  z-index: 7;
+  top: 525px;
+  background-repeat: no-repeat;
+  height: 50px;
+  background-position: bottom;
+}
+
+.page-3 .so-6 {
+  position: absolute;
+  left: 255px;
+  z-index: 6;
+  top: 347px;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+.page-3 .so-5 {
+  position: absolute;
+  left: 185px;
+  z-index: 5;
+  top: 402px;
+  width: 400px;
+  background-repeat: no-repeat;
+  height: 50px;
+  background-position: bottom;
+}
+
+.page-3 .so-8 {
+  position: absolute;
+  left: 171px;
+  z-index: 8;
+  top: 1060px;
+}
+
+.page-3 .so-9 {
+  position: absolute;
+  left: 412px;
+  z-index: 9;
+  top: 1060px;
+}
+
+.page-3 .so-10 {
+  position: absolute;
+  left: 313px;
+  z-index: 10;
+  top: 1155px;
+}
+
+.page-3 .so-3 {
+  position: absolute;
+  left: 198px;
+  z-index: 3;
+  top: 1288px;
+}
+
+.page-3 .so-2 {
+  position: absolute;
+  left: 419px;
+  z-index: 2;
+  top: 1288px;
+}
+
+.page-3 .number-input {
+  position: absolute;
+  top: 971px;
+  z-index: 10;
+  left: 394px;
+  width: 185px;
+  line-height: 40px;
+  font-size: 28px;
+  border: none;
+  background-color: transparent;
+}
+
+.page-3 .select-input {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  line-height: 50px;
+  height: 50px;
+  font-size: 26px;
+}
+
+.page-3 #subject {
+  position: absolute;
+  top: 642px;
+  left: 175px;
+  height: 50px;
+  width: 410px;
+  z-index: 9;
+  border: none;
+  background-color: transparent;
+  font-size: 30px;
+}
+
+.page-3 #mcontent {
+  position: absolute;
+  top: 733px;
+  z-index: 14;
+  left: 175px;
+  width: 410px;
+  height: 157px;
+  line-height: 50px;
+  background-color: transparent;
+  border: none;
+  font-size: 30px;
+}
+
+.page-3 .input01 {
+  position: absolute;
+  top: 902px;
+  z-index: 12;
+  height: 50px;
+  font-size: 26px;
+  left: 360px;
+  width: 225px;
+  border: none;
+  background-color: transparent;
+}
+
+.page-3 .input02 {
+  height: 50px;
+  line-height: 50px;
+  font-size: 26px;
+  width: 87%;
+  border: none;
+  display: block;
+  margin: 0 auto;
+  background-color: transparent;
+}
+
+.page-3 input {
+  outline: none;
+  border: 0px;
+}
+
+.page-3 .three-select {
+  position: absolute;
+  top: 460px;
+  z-index: 12;
+  left: 182px;
+  width: 403px;
+  text-align: center;
+}
+
+.page-3 select {
+  border: 0;
+  display: block;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  background: transparent;
+  appearance: none;
+  -moz-appearance: none;
+  /* Firefox */
+  -webkit-appearance: none;
+  /* Safari 和 Chrome */
+  text-align: center;
+  -moz-text-align-last: center;
+       text-align-last: center;
+  color: #987c5e;
+}
+.page-4 .so-6 {
+  position: absolute;
+  left: 276px;
+  z-index: 6;
+  top: 199px;
+}
+
+.page-4 .so-5 {
+  position: absolute;
+  left: 82px;
+  z-index: 5;
+  top: 1291px;
+}
+
+.page-4 .so-5 a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.page-4 .so-3 {
+  position: absolute;
+  left: 317px;
+  z-index: 3;
+  top: 1295px;
+}
+
+.page-4 .so-4 {
+  position: absolute;
+  left: 512px;
+  z-index: 4;
+  top: 1296px;
+}
+
+.page-4 .message-box {
+  position: absolute;
+  left: 80px;
+  top: 275px;
+  width: 639px;
+  height: 1000px;
+  overflow: auto;
+  z-index: 2;
+}
+
+.page-4 .message-box .message {
+  position: relative;
+  width: 639px;
+  height: 250px;
+  background-image: url(../resource/page4-2-1.png);
+}
+
+.page-4 .title {
+  position: absolute;
+  left: 35px;
+  z-index: 2;
+  font-family: 'FZLTCHPro--GB1-4', 'AdobeInvisFont', 'AdobeHeitiStd-Regular';
+  font-size: 28px;
+  line-height: 1.7;
+  color: #2167af;
+  top: 7px;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+}
+
+.page-4 .so-2-3 {
+  position: absolute;
+  left: 482px;
+  z-index: 3;
+  top: 195px;
+  width: 78px;
+  height: 22px;
+  background-image: url(../resource/page4-2-3.png);
+}
+
+.page-4 .so-2-3 a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.page-4 .text {
+  font-size: 26px;
+  line-height: 45px;
+  width: 486px;
+  left: 46px;
+  position: absolute;
+  top: 52px;
+}
+.page-5 .so-5 {
+  position: absolute;
+  left: 597px;
+  z-index: 5;
+  top: 157px;
+  width: 100px;
+}
+
+.page-5 .so-6 {
+  position: absolute;
+  left: 69px;
+  z-index: 6;
+  top: 157px;
+}
+
+.page-5 .so-2 {
+  position: absolute;
+  left: 75px;
+  z-index: 2;
+  top: 264px;
+}
+
+.page-5 .so-4 {
+  position: absolute;
+  left: 118px;
+  z-index: 4;
+  top: 1287px;
+  z-index: 9;
+}
+
+.page-5 .so-3 {
+  position: absolute;
+  left: 428px;
+  z-index: 3;
+  top: 1286px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  pointer-events: none;
+}
+
+.page-5 .show {
+  opacity: 0;
+  z-index: 14;
+}
+.loading-box {
+  background-color: #256cb5;
+}
+
+.loading-box .loading-bar {
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  height: 14px;
+  background-color: white;
+  width: 80%;
+  margin: auto;
+  left: 0;
+  right: 0;
+  border-radius: 15px;
+  padding: 6px 10px;
+}
+
+.loading-box .num-bar {
+  background-color: #4d95df;
+  height: 14px;
+  border-radius: 7px;
+  width: 0%;
+}
+
+.loading-box .num,
+.loading-box .text {
+  position: absolute;
+  top: 0%;
+  bottom: -8%;
+  margin: auto;
+  line-height: 60px;
+  height: 60px;
+  font-size: 40px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+.loading-box .text {
+  bottom: -14%;
+}
+/* 页面切换动画 */
+.o-page-moveToRight {
+	-webkit-animation: moveToRight .6s ease both;
+	-moz-animation: moveToRight .6s ease both;
+	animation: moveToRight .6s ease both;
+}
+
+@-webkit-keyframes moveToRight { 
+	to { -webkit-transform: translateX(100%); }
+}
+@-moz-keyframes moveToRight { 
+	to { -moz-transform: translateX(100%); }
+}
+@keyframes moveToRight { 
+	to { transform: translateX(100%); }
+}
+.o-page-moveFromLeft {
+	-webkit-animation: moveFromLeft .6s ease both;
+	-moz-animation: moveFromLeft .6s ease both;
+	animation: moveFromLeft .6s ease both;
+}
+
+@-webkit-keyframes moveFromLeft {
+	from { -webkit-transform: translateX(-100%); }
+}
+@-moz-keyframes moveFromLeft {
+	from { -moz-transform: translateX(-100%); }
+}
+@keyframes moveFromLeft {
+	from { transform: translateX(-100%); }
+}
+.o-page-moveToLeft {
+	-webkit-animation: moveToLeft .6s ease both;
+	-moz-animation: moveToLeft .6s ease both;
+	animation: moveToLeft .6s ease both;
+}
+
+@-webkit-keyframes moveToLeft {
+	to { -webkit-transform: translateX(-100%); }
+}
+@-moz-keyframes moveToLeft {
+	to { -moz-transform: translateX(-100%); }
+}
+@keyframes moveToLeft {
+	to { transform: translateX(-100%); }
+}
+.o-page-moveFromRight {
+	-webkit-animation: moveFromRight .6s ease both;
+	-moz-animation: moveFromRight .6s ease both;
+	animation: moveFromRight .6s ease both;
+}
+
+@-webkit-keyframes moveFromRight {
+	from { -webkit-transform: translateX(100%); }
+}
+@-moz-keyframes moveFromRight {
+	from { -moz-transform: translateX(100%); }
+}
+@keyframes moveFromRight {
+	from { transform: translateX(100%); }
+}
+
+/* 这个文件里写的是全局样式,在各个页面都生效 */
+body, html, .page {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  user-select: text;
+  font: normal 12px/180% "SimSun";
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+}
+html {
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+}
+h1, h2, h3, h4, h5, input {
+  margin: 0;
+  padding: 0;
+}
+ul, li {
+  list-style-type: none;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, button, input, textarea, th, td{
+  margin: 0;
+  padding: 0;
+}
+
+.clear:after {
+  content: "";
+  height: 0;
+  line-height: 0;
+  display: block;
+  visibility: hidden;
+  clear: both;
+}

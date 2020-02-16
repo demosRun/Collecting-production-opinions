@@ -1,0 +1,35 @@
+<template lang="pug">
+.page-1(style="background-image: url('@|page1.jpg|');")
+  .so-2(o-animation="flicker" o-tap="next")
+</template>
+
+<script>
+  module.exports = {
+    back: function () {
+      // owo.go({ani: 'moveToRight/moveFromLeft/moveToLeft/moveFromRight',noBack: true})
+      owo.tool.stepTo(-1, {
+        ani: 'moveToRight/moveFromLeft/moveToLeft/moveFromRight',
+        noBack: true
+      })
+    },
+    next: function () {
+      owo.tool.stepTo(1, {
+        ani: 'moveToLeft/moveFromRight/moveToRight/moveFromLeft',
+        noBack: true
+      })
+    }
+  }
+</script>
+
+
+<style lang="less">
+.so-2 {
+  position: absolute;
+  left: 252px;
+  z-index: 2;
+  top: 1256px;
+  width: 245px;
+  height: 62px;
+  background-image: url(@|page1-2.png|);
+}
+</style>

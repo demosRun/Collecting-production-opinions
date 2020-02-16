@@ -1,0 +1,81 @@
+<template lang="pug">
+.page-2
+  img.so-2(src="@|page2-2.png|")
+  img.so-3(src="@|page2-3.png|" o-tap="next")
+  .so-1.text-box(style="width: 576px; height: 1035px;")
+    .text
+      p 这是一场没有硝烟的战争。
+      p “生命重于泰山。疫情就是命令，防控就是责任。”
+      p 进入防控疫情非常状态的中国，正在与时间赛跑，举全国之力共抗新冠肺炎疫情。
+      p 各企业第一时间纷纷加入到驰援疫情防控队伍当中，展现出企业社会责任，弘扬社会正气。
+      p 众志成城，勠力同心。
+    img.show-item(src="@|ad.png|")
+    img.show-item(src="@|ad.png|")
+    img.show-item(src="@|ad.png|")
+</template>
+
+<script>
+  module.exports = {
+    created: function () {
+      owo.tool.touch({
+        el: this.$el,
+        end: (e) => {
+          if (e.swipe[0] > 100) {
+            this.back()
+          } else if (e.swipe[0] < -100) {
+            this.next()
+          }
+        }
+      })
+    },
+    back: function () {
+      owo.tool.stepTo(-1, {
+        ani: 'moveToRight/moveFromLeft/moveToLeft/moveFromRight',
+        noBack: true
+      })
+    },
+    next: function () {
+      owo.tool.stepTo(1, {
+        ani: 'moveToLeft/moveFromRight/moveToRight/moveFromLeft',
+        noBack: true
+      })
+    }
+  }
+</script>
+
+
+<style lang="less">
+.so-2 {
+  position: absolute;
+  left: 76px;
+  z-index: 2;
+  top: 208px
+}
+.so-3 {
+  position: absolute;
+  left: 498px;
+  z-index: 3;
+  top: 212px
+}
+.so-1 {
+  position: absolute;
+  left: 94px;
+  z-index: 2;
+  top: 312px;
+  overflow: auto;
+}
+.text {
+  font-size: 36px;
+  color: white;
+  line-height: 1.7;
+  margin-bottom: 10px;
+  p {
+    text-indent: 2em;
+  }
+}
+.show-item {
+  width: 100%;
+  height: auto;
+  margin: 10px 0;
+}
+</style>

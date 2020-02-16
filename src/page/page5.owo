@@ -1,0 +1,71 @@
+<template lang="pug">
+.page-5
+  img.so-5(src="@|page5-5.png|" o-animation="flicker")
+  img.so-6(src="@|page5-6.png|")
+  img.so-2(src="@|page5-2.png|")
+  //- 重新观看
+  img.so-4(src="@|page5-4.png|" o-tap="location.replace('')")
+  img.so-3(src="@|page5-3.png|")
+  //- 分享的海报
+  img.show(src="@|show.jpg|")
+</template>
+
+<script>
+module.exports = {
+  created: function () {
+    owo.tool.touch({
+      el: this.$el,
+      end: (e) => {
+        if (e.swipe[0] > 100) {
+          this.back()
+        }
+      }
+    })
+  },
+  back: function () {
+    owo.tool.stepTo(-1, {
+      ani: 'moveToRight/moveFromLeft/moveToLeft/moveFromRight',
+      noBack: true
+    })
+  },
+}
+</script>
+<style lang="less">
+.so-5 {
+  position: absolute;
+  left: 557px;
+  z-index: 5;
+  top: 106px
+}
+.so-6 {
+  position: absolute;
+  left: 69px;
+  z-index: 6;
+  top: 157px
+}
+.so-2 {
+  position: absolute;
+  left: 75px;
+  z-index: 2;
+  top: 264px
+}
+.so-4 {
+  position: absolute;
+  left: 118px;
+  z-index: 4;
+  top: 1287px;
+  z-index: 9;
+}
+.so-3 {
+  position: absolute;
+  left: 428px;
+  z-index: 3;
+  top: 1286px;
+  user-select: none;
+  pointer-events: none;
+}
+.show {
+  opacity: 0;
+  z-index: 14;
+}
+</style>

@@ -1,0 +1,50 @@
+<template lang="pug">
+.loading-box
+  .loading-bar
+    .num-bar
+  span.text Loading
+  .num 50%
+</template>
+
+
+
+<style lang="less">
+.loading-box {
+  background-color: #256cb5;
+}
+.loading-bar {
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  height: 14px;
+  background-color: white;
+  width: 80%;
+  margin: auto;
+  left: 0;
+  right: 0;
+  border-radius: 15px;
+  padding: 6px 10px;
+}
+.num-bar {
+  background-color: #4d95df;
+  height: 14px;
+  border-radius: 7px;
+  width: 0%;
+}
+.num, .text {
+  position: absolute;
+  top: 0%;
+  bottom: -8%;
+  margin: auto;
+  line-height: 60px;
+  height: 60px;
+  font-size: 40px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+.text {
+  bottom: -14%;
+}
+</style>
